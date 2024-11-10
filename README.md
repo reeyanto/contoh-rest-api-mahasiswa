@@ -1,21 +1,22 @@
-## Laravel AdminKit 
+## Contoh REST API Mahasiswa 
   
-Laravel AdminKit merupakan sebuah halaman dashboard `kosongan` yang dibuat menggunakan Laravel v10 dan template bootstrap v5 bernama AdminKit.  Dibuat agar dapat memudahkan `developer` untuk membangun halaman dashboard (administrator) tanpa perlu memulainya dari awal.  
-  
-### Persiapan  
-Pastikan komputer kamu sudah terpasang:  
-1. PHP  
-2. Composer  
+Ini adalah contoh REST API pengelolaan data mahasiswa sederhana yang dibuat menggunakan Laravel 10. Output berupa tampilan HTML (dashboard admin) dan data dalam format JSON, sehingga selain manipulasi data menggunakan rest api, juga bisa dilakukan via dashboard admin.
 
-### Panduan Instalasi  
-1. Ketikkan `composer create-project reeyanto/laravel-adminkit nama-project` 
-2. Tunggu hingga proses instalasi selesai  
-3. Setelah selesai, kamu akan menemukan 5 file views:  
-  a. `admin/app.blade.php`  
-  b. `admin/part/navbar.blade.php`  
-  c. `admin/part/sidebar.blade.php`  
-  d. `admin/part/footer.blade.php`  
-  e. `admin/blank/index.blade.php`  
+### Tampil Data
+<img width="1420" alt="Screen Shot 2024-11-10 at 19 20 00" src="https://github.com/user-attachments/assets/0af3ca2a-d7c9-41ad-86bb-459892056634">
+
+### Tambah Data
+<img width="1420" alt="Screen Shot 2024-11-10 at 19 20 27" src="https://github.com/user-attachments/assets/0e609a5f-b692-4659-a5b0-51ab417f8cc3">
+
+### Ubah Data
+<img width="1420" alt="Screen Shot 2024-11-10 at 19 20 50" src="https://github.com/user-attachments/assets/dd7efe04-fc0f-4600-b829-add0dba0f372">
+
+### Hapus Data
+<img width="1420" alt="Screen Shot 2024-11-10 at 19 21 14" src="https://github.com/user-attachments/assets/55dcff77-37ed-4e99-b232-2811640602fc">
+
+### Output dalam Format JSON
+<img width="1070" alt="Screen Shot 2024-11-10 at 19 22 34" src="https://github.com/user-attachments/assets/5bffbc94-83a2-4a0c-98c0-d0bbe11215ca">
+
   
 ### Pembuat  
 Riyanto ([github.com/@reeyanto](https://github.com/reeyanto))  
