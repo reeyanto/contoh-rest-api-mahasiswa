@@ -22,7 +22,7 @@
 
                             <div class="mb-3">
                                 <label for="nim">Nomor Induk Mahasiswa <span class="text-danger">*</span></label>
-                                <input type="text" name="nim" value="{{ old('nim', $mahasiswa->nim) }}" autocomplete="off" disabled class="form-control @error('nim') is-invalid @enderror">
+                                <input type="text" name="nim" value="{{ old('nim', $mahasiswa->nim) }}" autocomplete="off" readonly class="form-control bg-light @error('nim') is-invalid @enderror">
                                 @error('nim')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

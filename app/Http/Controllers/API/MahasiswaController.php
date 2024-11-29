@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MahasiswaRequest;
 use App\Http\Resources\MahasiswaResource;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
@@ -21,17 +22,9 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MahasiswaRequest $request)
     {
-        $validated = $request->validate([
-            'nim'  => 'required',
-            'nama' => 'required',
-            'alamat' => 'required',
-            'prodi' => 'required',
-        ]);
-
-        $mahasiswa = Mahasiswa::create($validated);
-
+        $mahasiswa = Mahasiswa::create($request->validated());
         return MahasiswaResource::make($mahasiswa);
     }
 
@@ -43,17 +36,15 @@ class MahasiswaController extends Controller
         return MahasiswaResource::make($mahasiswa);
     }
 
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(MahasiswaRequest $request, Mahasiswa $mahasiswa)
     {
-        $mahasiswa->update($request->all());
-        
+        $mahasiswa->update($request->validated());
         return MahasiswaResource::make($mahasiswa);
     }
 
     public function destroy(Mahasiswa $mahasiswa)
     {
         $mahasiswa->delete();
-
         return response()->noContent();
     }
     

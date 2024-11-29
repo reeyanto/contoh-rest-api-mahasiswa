@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MahasiswaRequest;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -27,21 +28,9 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MahasiswaRequest $request)
     {
-        $validated = $request->validate([
-            'nim'       => 'required|string|digits:10|unique:mahasiswa,nim',
-            'nama'      => 'required|string|min:3',
-            'alamat'    => 'required|string|min:3',
-            'prodi'     => 'required|string|in:Manajemen Informatika,Teknik Listrik'
-        ], [
-            'nim.required'      => 'Nomor Induk Mahasiswa wajib diisi',
-            'nama.required'     => 'Nama wajib diisi',
-            'alamat.required'   => 'Alamat wajib diisi',
-            'prodi.required'    => 'Pilih salah satu program studi'
-        ]);
-
-        Mahasiswa::create($validated);
+        Mahasiswa::create($request->validated());
         return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil disimpan');
     }
 
@@ -64,19 +53,9 @@ class MahasiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(MahasiswaRequest $request, Mahasiswa $mahasiswa)
     {
-        $validated = $request->validate([
-            'nama'      => 'required|string|min:3',
-            'alamat'    => 'required|string|min:3',
-            'prodi'     => 'required|string|in:Manajemen Informatika,Teknik Listrik'
-        ], [
-            'nama.required'     => 'Nama wajib diisi',
-            'alamat.required'   => 'Alamat wajib diisi',
-            'prodi.required'    => 'Pilih salah satu program studi'
-        ]);
-
-        $mahasiswa->update($validated);
+        $mahasiswa->update($request->validated());
         return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil diperbarui');
     }
 
